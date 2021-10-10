@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Demo AngularJS Factory</title>
+    <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myController">
+        <p>Enter a number: <input type="number" ng-model="number" required></p>
+        <button id="btnCall" ng-click="square()">Square</button>
+        <p>Result: {{result}}</p>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.factory('MathFactory',function(){   //Method factory() to create and return a value
+            var factory = {};                   //Define factory
+            factory.square = function(a) {      //Assign a function to factory
+                return a * a;
+            }
+            return factory;    
+        });
+        //Inject the MathService created using factory into the controller
+        app.controller('myController',function($scope,MathFactory){ 
+            $scope.square = function() {
+                $scope.result = MathFactory.square($scope.number);
+            }
+        });
+    </script>
+</body>
+</html>

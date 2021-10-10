@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ng-filter</title>
+        <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+    </head>
+    <body>
+        <h2>ng-filter date demo</h2>
+        <hr>
+        <div ng-app="myApp" ng-controller="myController">
+            <p>Date: {{today|date:"dd.MM.y"}}</p>
+            <p>Date: {{today|date:"short"}}</p>
+            <p>Date: {{today|date:"medium"}}</p>
+            <p>Date: {{today|date:"shortDate"}}</p>
+            <p>Date: {{today|date:"longDate"}}</p>
+            <p>Date: {{today|date:"fullDate"}}</p>
+            <p>Date: {{today|date:"mediumTime"}}</p>
+        </div>
+
+        <script>
+            var app=angular.module("myApp", []);
+            app.controller("myController",function($scope){
+                $scope.today=new Date(); 
+            });
+        </script>
+    </body>
+</html>

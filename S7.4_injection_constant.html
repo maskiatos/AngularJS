@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <title>Demo Injecting a value into a controller</title>
+    <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myController">
+        <p>Enter radius of circle: <input type="number" ng-model="number" required></p>
+        <button id="btnCall" ng-click="area()">Area</button>
+        <p>Pi: {{pi}}</p>
+        <p>Result: {{result}}</p>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.constant("pi","3.14");
+        app.controller('myController',function($scope,pi){
+            $scope.area = function(a) {
+            $scope.pi = pi;
+            $scope.result = pi*($scope.number * $scope.number);
+            };
+        });
+    </script>
+</body>
+</html>

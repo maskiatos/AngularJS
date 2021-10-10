@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ng-show/ng-hide</title>
+        <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+    </head>
+    <body>
+        <h2>ng-show/ng-hide demo</h2>
+        <hr>
+        <div ng-app ng-init="show=true;hide=false">
+            <p>Show picture <input type="checkbox" ng-model="show"></p>
+            <img src="image/anh1_lab2_ses2.jpg" ng-show="show">
+            <p>Hide picture <input type="checkbox" ng-model="hide"></p>
+            <img src="image/anh2_lab2_ses2.jpg" ng-hide="show">
+        </div>
+    </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AngularJS Material</title>
+        <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+    <link href = "http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300 italic,400italic,500,500italic,700,700italic,900italic,900" rel="stylesheet" type="text/css">
+        <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-messages.min.js"></script>
+        <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+    <style>
+        .s1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 48px;
+            text-align: center;
+        }
+        md-checkbox.md-checked.green .md-icon { 
+        background-color: rgba(0, 255, 0, 0.87); 
+        } 
+        md-checkbox.md-checked[disabled].red .md-icon { 
+        background-color: rgba(255, 0, 0, 0.26); 
+        } 
+        md-checkbox.dotted .md-icon { 
+        border-width: 1px; 
+        border-style: dashed; 
+        }
+    </style>
+</head>
+<body ng-app="MyApp" ng-controller="myController">
+    <h3 class="s1">Beginning to work with AngularJS Material</h3>
+    <hr>
+    <h5 class="md-display-4">Light 112px</h5>
+    <h5 class="md-display-3">Regular 56px</h5>
+    <h5 class="md-display-2">Regular 45px</h5>
+    <h5 class="md-display-1">Regular 34px</h5>
+    <h5 class="md-headline">Regular 24px</h5>
+    <h5 class="md-title">Medium 20px</h5>
+    <h5 class="md-subhead">Regular 16px</h5>
+
+    <p class="md-body-1">Regular body style <small class="md-caption">with small text</small>.</p>
+    <p class="md-body-2">Body style with medium weight.</p>
+    <md-button>Button</md-button>
+    <p><span class="md-caption">Caption</span></p>
+
+    <md-content>
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-button>{{title1}}</md-button>
+            <md-button md-no-ink class="md-primary">Active (md-no-ink)</md-button>
+            <md-button ng-disabled="true" class="md-primary">Disabled</md-button>
+            <md-button class="md-warn">{{title4}}</md-button>
+            <div class="label">Flat Buttons</div>
+        </section>
+
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-button class="md-raised">Button</md-button>
+            <md-button class="md-raised md-primary">Active</md-button>
+            <md-button ng-disabled="true" class="md-raised md-primary">Disabled</md-button>
+            <md-button class="md-raised md-warn">Warn</md-button>
+            <div class="label">Raised Buttons</div>
+        </section>
+
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-button ng-href="{{googleUrl}}" target="_blank">Default Link</md-button>
+            <md-button class="md-primary" ng-href="{{googleUrl}}" target="_blank">Primary Link</md-button>
+            <md-button>Default Button</md-button>
+            <div class="label">Link vs. Button</div>
+        </section>
+
+        <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+            <md-button class="md-primary md-hue-2">Primary Hue 2</md-button>
+            <md-button class="md-warn md-raised md-hue-1">Warn Hue 1</md-button>
+            <md-button class="md-accent md-raised md-hue-2">Accent Hue 2</md-button>
+            <md-button class="md-accent md-hue-3">Accent Hue 3</md-button>
+            <div class="label">Themed</div>
+        </section>
+    </md-content>
+
+    <h5>Checkboxes</h5>
+        
+        <md-checkbox ng-model="isChecked" aria-label="Married">Married</md-checkbox>
+        <md-checkbox md-no-ink ng-model="hasInk" aria-label="No Ink Effects">Single</md-checkbox>
+        <md-checkbox ng-disabled="true" ng-model="isDisabled" aria-label="Disabled">Other (Disabled)</md-checkbox> </br>
+        
+        <h5>INK Checkbox</h5>
+
+        <md-checkbox class="green">Green Checkbox</md-checkbox> </br>
+        
+        <h5>Disabled Checkbox</h5>
+
+        <md-checkbox ng-disabled="true" class="red" ng-model="data.cb4" ng-init="data.cb4=true">
+            Checkbox: Disabled, Checked
+        </md-checkbox>
+        
+        <h5>Bordered Checkboxes</h5>
+
+        <div>
+            <md-checkbox ng-model="data.cb1" aria-label="Checkbox 2" ng-true-value="'yup'" ng-false-value="'nope'">Default Border
+            </md-checkbox>
+        </div>
+        <div>
+            <md-checkbox ng-model="data.cb2" aria-label="Checkbox 2" ng-true-value="'yup'" class="dotted"ng-false-value="'nope'">Custom Border
+            </md-checkbox>
+    
+    <script>
+        var app = angular.module('MyApp', ['ngMaterial', 'ngMessages']);
+        app.controller("myController", function($scope) {
+            $scope.title1 = 'Button'; 
+            $scope.title4 = 'Warn';
+            $scope.googleUrl = 'http://google.com'; 
+        });
+    </script>
+</body>
+</html>

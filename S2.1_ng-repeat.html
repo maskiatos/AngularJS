@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ng-repeat</title>
+        <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+    </head>
+    <body>
+        <h2>ng-repeat demo</h2>
+        <hr>
+        <!-- <div ng-app="" ng-init="cities=['Sài Gòn','Hà Nội','Huế','TPHCM']">
+            <ul>
+                <li ng-repeat="tp in cities">{{$index}}. {{tp}}</li>
+            </ul>
+        </div> -->
+        <div ng-app="myapp" ng-controller="mycontroller">
+            <table border="3" class="table">
+                <thead style="font-size: 20px;">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="u in users">
+                        <td>{{u.id}}</td>
+                        <td>{{u.name}}</td>
+                        <td>{{u.role}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+            angular.module("myapp",[]).controller("mycontroller",function($scope){
+                $scope.users=[
+                    {
+                        id:"Staff-01",
+                        name:"Vũ Đức Thịnh",
+                        role:"Administrator"
+                    },
+                    {
+                        id:"Staff-02",
+                        name:"Nguyễn Tài Long",
+                        role:"Moderator"
+                    },
+                    {
+                        id:"Staff-03",
+                        name:"Nguyễn Quang Tuấn",
+                        role:"Member"
+                    }
+                ]
+            });
+        </script>
+    </body>
+</html>

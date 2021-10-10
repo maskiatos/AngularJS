@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Demo AngularJS Service</title>
+    <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myController">
+        <p>Enter a number: <input type="number" ng-model="number" required></p>
+        <button id="btnCall" ng-click="square()">Square</button>
+        <p>Result: {{result}}</p>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.service('MathService',function(){   //Method service() to create a service
+            this.square = function(a) {      //Assign a function to service
+                return a * a;
+            }    
+        });
+        //Inject the MathService created into the controller
+        app.controller('myController',function($scope,MathService){ 
+            $scope.square = function() {
+                $scope.result = MathService.square($scope.number);
+            }
+        });
+    </script>
+</body>
+</html>

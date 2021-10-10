@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Demo AngularJS: Dependency Injection</title>
+        <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+    </head>
+    <body ng-controller="myController">
+        <div>
+            <h3>Demo AngularJS: Dependency Injection</h3>
+        </div>
+        <script>
+            var app = angular.module('myApp',[]);
+                app.controller('myController',function($scope) {
+                    console.log($scope);
+                });
+
+            var searchPeople = function($scope,firstName,lastName,height,age,occupation) {
+                return 'John Doe';
+            }
+            console.log(searchPeople);
+            console.log(angular.injector().annotate(searchPeople));
+        </script>
+    </body>
+</html>

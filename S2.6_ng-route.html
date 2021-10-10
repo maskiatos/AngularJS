@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ng-route</title>
+        <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
+    </head>
+    <body>
+        <h2>Angular Route demo</h2>
+        <hr>
+        <div ng-app="myApp">
+            <hr>
+            <div id="menu">
+                <ul>
+                    <li><a href="#!/">Lily</a></li> <!-- trang gốc, nếu có thư mục con thì có thể là /xxx/xxx -->
+                    <li><a href="#!b">Dahlia</a></li>
+                    <li><a href="#!c">Orchids</a></li>
+                </ul>
+            </div>
+            <div ng-view style="background-color: cyan; float: right; width: 700px;"></div>
+            <!-- để xác định vị trí hiển thị kết quả khi có sự tương tác -->
+        </div>
+
+        <script>
+            var app=angular.module("myApp", ["ngRoute"]);
+            app.config(function($routeProvider){
+                $routeProvider
+                    .when("/",{templateUrl:"S2.1_ng-repeat.html"})
+                    .when("/b",{templateUrl:"S2.2_ng-show,ng-hide.html"})
+                    .when("/c",{templateUrl:"S2.3_ng-include.html"});
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ng-bind</title>
+        <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+    </head>
+    <body ng-app="">
+        <div> 
+            <h2>Please enter your name</h2>
+            <p>Name: <input type="text" name="txtname" placeholder="Nhập tên" ng-model="name"></p>
+            <p>Hello <span ng-bind="name"></span></p> 
+        </div>
+    </body>
+</html>

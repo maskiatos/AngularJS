@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Demo Javascript: Dependency Injection in JavaScript</title>
+    </head>
+    <body>
+        <div>
+            <h3>Demo Javascript: Dependency Injection in JavaScript</h3>
+        </div>
+        <script>
+            var Person = function(firstname,lastname) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+            }
+            function logPerson(person) //Định nghĩa hàm logPerson(person)
+            {
+                console.log(person);
+            }
+            var john = new Person("John","Doe"); //Tạo đối tượng Person ngoài hàm
+            logPerson(john); //Chuyển đối tượng Person vào hàm logPerson(john) -> Đó là tiêm phụ thuộc
+        </script>
+    </body>
+</html>

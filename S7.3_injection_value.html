@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="utf-8">
+    <title>Demo Injecting a value into a controller</title>
+    <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+</head>
+<body ng-controller="MyController">
+    <div>
+        <p>Hello Employee, <b>{{empId}}</b>!  Welcome.</p>
+    </div>
+    <script>
+        var app = angular.module("myApp", []);
+        app.value('empId', '101');
+        app.controller("MyController", ['$scope', "empId", function ($scope, empId) { //tiêm mảng vào, cho trong [ ], không khác gì cách viết app.controller("MyController", function($scope,empId){});
+            $scope.empId = empId;
+        }]);
+    </script>
+</body>
+</html>

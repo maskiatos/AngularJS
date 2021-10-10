@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Custom Directive</title>
+        <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+    </head>
+    <body ng-app="myApp">
+        <h2>Custom directive demo</h2>
+        <hr>
+        <my-dir></my-dir> <!-- đây là E, ở dưới restrict phải có E mới hiện ra cái này -->
+        <div my-dir></div> <!-- đây là A, ở dưới restrict phải có A mới hiện ra cái này -->
+        <div class="my-dir"></div> <!-- đây là C, ở dưới restrict phải có C mới hiện ra cái này -->
+
+        <script>
+            var app=angular.module("myApp", []);
+            app.directive("myDir",function(){
+                return{
+                    restrict:'AEC', //áp dụng cho A, E, C, M: A là attribute, E là element, C là class, M là comment, nếu cần dùng thì ở kia chỉ cần gọi nó ra
+                    template:"<h3>Hello</h3><p>New detective</p>"
+                };
+            }) 
+        </script>
+    </body>
+</html>

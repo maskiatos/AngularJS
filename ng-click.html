@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ng-click</title>
+        <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-app="ungdung" ng-controller="header">
+            Nhập tên của bạn:
+            <input type="text" value="" ng-model="username">
+            <button ng-click="loichao()">In thông báo</button><br>
+            {{greeting}}
+        </div>
+        <script>
+            angular.module("ungdung",[]).controller("header",function($scope){
+                $scope.loichao=function(){
+                    $scope.greeting="Xin chao "+$scope.username+"!";
+                }
+            });
+        </script>
+    </body>
+</html>

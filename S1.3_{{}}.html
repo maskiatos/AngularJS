@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="myApp"><!-- khai báo module myApp -->
+    <head>
+        <meta charset="UTF-8">
+        <title>{{}}</title>
+        <script src="https://code.angularjs.org/1.7.9/angular.min.js"></script>
+    </head>
+    <body ng-controller="myController">
+        <div> 
+            <h2>Please enter your name</h2>
+            <p>Name: <input type="text" name="txtname" placeholder="Nhập tên" ng-model="name"></p>
+            <p>Hello <b>{{name}}</b>!</p> 
+        </div>
+
+        <script>
+            var app=angular.module("myApp", []);
+            app.controller("myController",function($scope){
+                $scope.name=""; 
+            });
+        </script>   
+    </body>
+</html>
